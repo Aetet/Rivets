@@ -1,10 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Rivets example</title>
+    <meta charset="UTF-8">
+    <title>Rivets example</title>
+    <script src="http://api-maps.yandex.ru/2.0-stable/?load=package.full&lang=ru-RU" type="text/javascript"> </script>
 </head>
 <body>
-	
+
+    <div id="map" style="width: 600px; height: 400px"></div>
+
+    
+    <script src="lib/vendors/bower/bower_components/handlebars/handlebars.js"></script>
+    <script id="appTemplate" type="text/template">
+        <div>
+            {{name}}    
+        </div>
+    </script>
+    <script src="js/yaMaps.js"></script>
+    <script src="lib/vendors/bower/bower_components/rivets/dist/rivets.js"></script>
+    <script src="lib/vendors/bower/bower_components/exoskeleton/exoskeleton.js"></script>
+    <script src="js/data/spb.js"></script>
+    <script src="js/data/msk.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
