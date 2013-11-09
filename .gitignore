@@ -1,0 +1,9 @@
+node_modules
+**/*.swp
+.idea
+**/*~
+*.log
+public/build/**
+public/lib/vendors/bower/
+public/node_modules
+**/*.iml
