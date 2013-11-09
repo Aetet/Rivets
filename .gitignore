@@ -4,6 +4,6 @@ node_modules
 **/*~
 *.log
 public/build/**
-public/lib/vendors/bower/
+public/lib/vendors/bower/bower_components
 public/node_modules
 **/*.iml

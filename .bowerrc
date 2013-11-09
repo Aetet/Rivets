@@ -1,4 +1,4 @@
 {
 	"cwd": "./public/lib/vendors/bower",
-	"directory": "./public/lib/vendors/bower/bower_components"
+	"directory": "bower_components"
 }

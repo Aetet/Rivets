@@ -1,0 +1,22 @@
+{
+  "name": "vendors",
+  "version": "0.0.0",
+  "authors": [
+    "Aetet <aetetic@gmail.com>"
+  ],
+  "main": "components.json",
+  "license": "MIT",
+  "homepage": "https://github.com/Aetet",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "exoskeleton": "~0.5.1",
+    "rivets": "~0.6.4"
+  }
+}
