@@ -24,6 +24,14 @@ ymaps.ready(function () {
 
 
 
+var domElement = document.querySelector('.jsToggleMap');
+var isMapOpen = true;
+
+
+ 
+
+
+
 
     var yaMapsWrapper = new YaMapsWrapper({
         locationString: 'Россия, Москва',
@@ -31,7 +39,17 @@ ymaps.ready(function () {
         deals: mskDeals
     });
     console.timeEnd('yaMaps MSK');
-
+domElement.addEventListener('click', function () {
+    if (isMapOpen) {
+        console.log('close',document.querySelector('#map').style.display = 'none');
+        isMapOpen = false;
+        yaMapsWrapper.changeCenter({coords: spbCoords});
+        yaMapsWrapper.resetGeoObjectCollection(spbDeals);
+    } else {
+        console.log('open', document.querySelector('#map').style.display = '');
+        isMapOpen = true;
+    }
+});
     /*
         document.querySelector('#map').innerHTML = '';
          console.time('yaMaps SPB');

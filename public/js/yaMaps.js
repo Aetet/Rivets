@@ -10,13 +10,10 @@
         var localOptions = options || {};
         var deals = localOptions.deals || mskDeals;
         if (localOptions.coords) {
-            console.log('coords');
             initMapWithCoords(localOptions.coords, deals);
         } else if (localOptions.locationString) {
-            console.log('location');
             initMapWithString(localOptions.locationString, deals);
         } else {
-            console.log('default');
             initMapWithString('Россия, Москва', deals);
         }
     }
@@ -36,7 +33,6 @@
     function initMapWithCoords(coordsForCenter, deals) {
 
         var myGeoObjects;
-        console.log('center coords', coordsForCenter);
         map = new ymaps.Map('map', {center: coordsForCenter, zoom: 8});
 
 
@@ -47,7 +43,6 @@
         dealPlaceGeoObjects = fillGeoObjectCollection(deals);
 
         clusterer.add(dealPlaceGeoObjects);
-        console.log('clusta', clusterer);
         map.geoObjects.add(clusterer);
     }
 
@@ -71,7 +66,6 @@
         },
 
         resetGeoObjectCollection: function(newDealsObjects) {
-            console.log('clusterer', clusterer);
             clusterer.remove(dealPlaceGeoObjects);
 
             dealPlaceGeoObjects = fillGeoObjectCollection(newDealsObjects);
@@ -94,14 +88,30 @@
         }
 
         function processEveryAddress(address, deal) {
+            var BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div>$[properties.name]Hello</div>', {
+               // '<table><tr><td>1</td><td>2</td></tr><tr><td>7</td><td>9</td></tr></table>', {
+                    build: function () {
+                        BalloonContentLayout.superclass.build.call(this);
+                    },
+                    clear: function () {
+                        BalloonContentLayout.superclass.build.call(this);
+                    }
+                }
+
+            );
+
             var geoObjectForAddress = new ymaps.GeoObject({
                 geometry: {
                     type: "Point",
                     coordinates: [address.y, address.x]
                 },
                 properties: {
+                    name: me.get('name'),
                     balloonContentBody: deal.name
                 }
+            }, {
+                balloonContentLayout: BalloonContentLayout
             });
             dealPlaceGeoObjects.push(geoObjectForAddress);
         }
